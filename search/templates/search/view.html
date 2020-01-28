@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container text-center ml-auto mr-auto">
+    <h2>{{ title }}</h2>
+    <p>All Vehicles are sold as is!</p>
+
+        {% if request.GET.q %}
+      <div class="col-12 mb-3">Results for: {{ request.GET.q }}
+        <hr>
+      </div>
+      {% else %}
+      {% endif %} 
+        <div class="col-12 col-md-8 mx-auto py-4">
+          {% include 'search/snippets/search-form.html' %}
+        </div>
+
+      
+
+  <div class="row">
+       
+
+    {% for obj in object_list %}
+    <div class="col-12 col-lg-4 py-2">
+     
+      {% include 'lien/snippets/card.html' with instance=obj %}
+
+      {% if forloop.counter|divisibleby:3 %}
+      </div></div><div class="row"><div class="col"><hr></div>
+      {% else %}
+      </div>
+      {% endif %}
+    
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+
+

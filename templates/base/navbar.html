@@ -1,0 +1,46 @@
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'admin' as admin_url %}
+{% url 'contact' as contact_url %}
+{% url 'liens:list'  as lien_url %}
+{% url 'garage:list'  as garage_url %}
+{% url 'damages:list'  as damage_url %}
+{% url 'calls:calls'  as calls_url %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ home_url }}">GST</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
+
+        <!-- <a class="nav-item nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a> -->
+
+        <!-- <a class="nav-item nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url}}">Contact</a> -->
+
+        <a class="nav-item nav-link {% if request.path == lien_url %}active{% endif %}" href="{{ lien_url }}">Lien Sales</a>
+
+        <a class="nav-item nav-link {% if request.path == garage_url %}active{% endif %}" href="{{ garage_url }}">Garage Sales</a>
+
+        {% if request.user.is_authenticated %}
+        <a class="nav-item nav-link {% if request.path == damage_url %}active{% endif %}" href="{{ damage_url }}">Damages</a>
+
+        <a class="nav-item nav-link" href="/admin/">Admin Area</a>
+
+        <a class="nav-item nav-link {% if request.path == logout_url %}active{% endif %}" href="{{ logout_url }}">Log Out</a>
+
+        
+
+        <a class="nav-item nav-link active" href="#"> Welcome: {{request.user}}</a>
+        {% else %}
+        <a class="nav-item nav-link {% if request.path == login_url %}active{% endif %}" href="{{ login_url }}">Login</a>
+        {% endif %}
+       
+        
+      </div>
+    </div>
+  </nav>

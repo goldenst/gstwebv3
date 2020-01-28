@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container text-center ml-auto mr-auto">
+    <h2>{{ title }}</h2>
+    <p>All Items are sold as is!</p>
+  <div class="row">
+
+    
+    
+
+    {% for obj in object_list %}
+    <div class="col-12 col-lg-4 py-2">
+     
+      {% include 'garage/snippets/card.html' with instance=obj %}
+
+      {% if forloop.counter|divisibleby:3 %}
+      </div></div><div class="row"><div class="col"><hr></div>
+      {% else %}
+      </div>
+      {% endif %}
+    
+    {% endfor %}
+  </div>
+</div>
+
+    
+{% endblock %}

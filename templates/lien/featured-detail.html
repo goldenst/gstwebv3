@@ -1,0 +1,15 @@
+{% load static %}
+
+<h2>{{ title }}</h2>
+
+
+{% if object.img %}
+<img src="{{ object.photo_main.url }}" class="img-fluid card-img-top" width="300px" alt="pic">
+{% endif %}
+  <br>
+{{ object.year }}  <br>
+{{ object.make }}  <br>
+{{ object.model }}  <br>
+${{ object.price }}.00  <br>
+
+{{ object.photo_main }}

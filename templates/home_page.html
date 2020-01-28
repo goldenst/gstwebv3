@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% include 'base/css.html' %}
+
+<div class="container">
+<div class="container text-center logo">
+    <br>
+    <img src="{% static 'img/GST_logo.png' %}" class="img-fluid" alt=""><br>
+    <hr>
+    
+    <br>
+    <h5>Serving the Greater Sacramento areas: North Sacramento, Antelope, North Highlands Rio Lind, Roseville, Rocklin & Granite Bay</h5>
+    <h5>Also serving the Yuba City and Marysville areas</h5>
+    </div>
+
+<div class="container text-center address ">
+  <div class="row">
+      <div class=col-1></div>
+    <div class="col-sm left"><br><br>
+        <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.896663189337!2d-121.32815958453133!3d38.674242879605664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809adf1e737ff7a9%3A0xd963f35f32606a40!2s5916+Auburn+Blvd%2C+Citrus+Heights%2C+CA+95621!5e0!3m2!1sen!2sus!4v1535249088262" width="250" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <h2>Citrus Heights</h2>
+      <h4>5916 Auburn blvd.</h4>
+        <p>Citrus Heights ,CA<br>
+        95621<br>
+        916-646-1916</p>
+        
+    </div>
+    <div class="col-sm center">
+     <br><br>
+        <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.962419818713!2d-121.32874048453009!3d38.718671779598644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809b209993946145%3A0x1a550cf696500f6b!2s8636+Antelope+North+Rd%2C+Antelope%2C+CA+95843!5e0!3m2!1sen!2sus!4v1535249158666" width="250" height="250" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+        <h2>Antelope</h2>
+      <h4>8636 Antelope North Rd.</h4>
+        <p>Antelope ,CA<br>
+        95843<br>
+        916-646-1916</p>
+    </div>
+
+    <div class="col-sm right">
+      <br><br>
+        <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3095.161548956086!2d-121.61021878425318!3d39.125555141067295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809b5322deb62553%3A0xa11469b50210139!2s55%20Wilbur%20Ave%2C%20Yuba%20City%2C%20CA%2095991!5e0!3m2!1sen!2sus!4v1576129935750!5m2!1sen!2sus" width="250" height="250" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+        <h2>Yuba City</h2>
+      <h4>55 Wilbur Ave.</h4>
+        <p>Yuba City ,CA<br>
+        95843<br>
+        916-646-1916</p>
+    </div>
+      <div class="col-1"></div>
+  </div>
+</div>
+</div>
+    
+  
+    
+   
+
+    
+    
+  
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+      <div class="col text-center">
+          <h1>{{ title }}</h1>
+          <img src="{% static 'img/towtruck.jpg' %}" class="img-fluid" alt="">
+          <br>
+          <h5>2 Locations to Serve the Sacramento Area</h5>
+      </div>
+      </div>
+      <hr>
+      <div class="row">
+          <div class="col text-center">
+              <iframe   id='map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.896480947224!2d-121.3281595842619!3d38.67424706767093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809adf1e737ff7a9%3A0xd963f35f32606a40!2s5916%20Auburn%20Blvd%2C%20Citrus%20Heights%2C%20CA%2095621!5e0!3m2!1sen!2sus!4v1576129696673!5m2!1sen!2sus" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="false"></iframe>
+
+              <iframe id='map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9622375133767!2d-121.32874048426105!3d38.71867596506328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809b209993946145%3A0x1a550cf696500f6b!2s8636%20Antelope%20North%20Rd%2C%20Antelope%2C%20CA%2095843!5e0!3m2!1sen!2sus!4v1576129914250!5m2!1sen!2sus" width="300" height="300" frameborder="0" style="border:1px;" allowfullscreen=""></iframe>
+              <br>
+
+              <h5>Serving The Yuba City and Maryslille Area</h5> 
+              <iframe id='map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3095.161548956086!2d-121.61021878425318!3d39.125555141067295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809b5322deb62553%3A0xa11469b50210139!2s55%20Wilbur%20Ave%2C%20Yuba%20City%2C%20CA%2095991!5e0!3m2!1sen!2sus!4v1576129935750!5m2!1sen!2sus" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+    <hr>
+    </div> 

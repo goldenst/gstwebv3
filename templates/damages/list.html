@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<div class="container">
+  <h1 class="text-center py-4">{{ title }}</h1>
+  <div class="row">
+    <div class="col-12">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Vehicle</th>
+            <th scope="col">Damages</th>
+            <th scope="col">Date of Incident</th>
+            <th scope="col">Status</th>
+            <th scope="col">Cost to GST</th>
+            <th scope="col">Estimate</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        {% for obj in object_list %}
+        <tbody>
+          <tr>
+            <th scope="row">{{ obj.id }}</a></th>
+            <td>{{ obj.cust_name }}</td>
+            <td>{{ obj.vehicle }}</td>
+            <td>{{ obj.damages }}</td>
+            <th>{{ obj.date_of_incident }}</th>
+            <td>{{ obj.status }}</td>
+            <td>{{ obj.cost_to_gst }}</td>
+            <td>{{ obj.damages_est }}</td>
+            <td>{{ obj.driver }}</td>
+            <td> <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">Details</a></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endif %}
+
+{% endblock %}

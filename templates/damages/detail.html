@@ -1,0 +1,185 @@
+  
+{% extends "base.html" %}
+{% load humanize %}
+
+{% load static %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<div class="container">
+  <section id="showcase-inner" class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1>{{object.cust_name}} </h1>
+          <p class="lead">
+            <i class="fas fa-phone"></i> {{object.cust_phone}}</p>
+          <p class="lead">
+            <i class="fas fa-at"></i> {{object.customer_email}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'damages:list' %}">Damages</a>
+          </li>
+          <li class="breadcrumb-item active"><i class="far fa-calendar-alt"></i> incident Date:
+            {{ object.date_of_incident }} <span class="float-right"></span></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Listing -->
+  <section id="listing" class="py-2">
+    <div class="container mr-auto ml-auto">
+      <a href="{% url 'damages:list' %}" class="btn btn-secondary mb-4">Back To Damages</a>
+      <div class="row">
+        <div class="col ">
+          Status: {{ object.status }} <span class="float-right"> Closed: {{ object.closed }} Closed
+            Date:{{ object.closed_date }}</span>
+            <p>Club: {{ object.club }} <span class="float-right"> Call / PO: {{ object.call_num }}</span></p>
+          <hr>
+        </div>
+        <div class="col-md-12 ml-auto mr-auto">
+          <!-- Home Main Image -->
+          <img src="{{ object.damage_main.url }}" alt="" class="img-main img-fluid mb-3 " width="500">
+          <!-- Thumbnails -->
+          <div class="row mb-5 thumbs">
+            <div class="col-md-2">
+              {% if object.damage_2 %}
+              <a href="{{ object.damage_2.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_2.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_3 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_3.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_3.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>{% endif %}
+            {% if object.damage_4 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_4.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_4.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_5 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_5.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_5.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_6 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_6.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_6.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_7 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_7.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_7.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_8 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_8.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_8.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.damage_9 %}
+            <div class="col-md-2">
+              <a href="{{ object.damage_9.url }}" data-lightbox="home-images">
+                <img src="{{ object.damage_9.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+            {% if object.estimate %}
+            <div class="col-md-2">
+              <a href="{{ object.estimate.url }}" data-lightbox="home-images">
+                <img src="{{ object.estimate.url }}" alt="" class="img-fluid py-1">
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-10">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-male"></i> Driver:
+                  <span class="float-right">{{ object.driver}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-square"></i> Driver Statement Filed: 
+                  {{ object.driver_statement }}
+                  <span class="float-right">Estimate Filed: {{ object.estimate }}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-car"></i> Vehicle:
+                  <span class="float-right">{{ object.vehicle }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-car-crash"></i> Damages:
+                  <span class="float-right">{{ object.damages }}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-wave"></i> Damages Est:
+                  <span class="float-right">$ {{ object.damages_est }}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-wave"></i> repaired at:
+                  <span class="float-right">{{ object.repaired_at }}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-wave"></i> Cost to GST:
+                  <span class="float-right">$ {{ object.cost_to_gst }}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                    <i class="fas fa-money-bill-wave"></i> Damage Detail / Notes:
+                    <span class="float-right">{{ object.damage_notes }}
+                    </span>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+{% else %}
+<div class="container">
+  <div class="row">
+    <div class="col py-3 text-center">
+      <h3>Sorry You are Not Authorized</h3>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}
