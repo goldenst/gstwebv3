@@ -79,4 +79,13 @@ def register_page(request):
     print(new_user)
   return render(request, "auth/register.html", context)
 
-# ----------------------  lien View -----------------------------------
+# ---------------------- Services View -----------------------------------
+
+def services_page(request):
+
+  context = {
+    'title': 'Services',
+    
+  }
+ 
+  return render(request, 'service/view.html', context )

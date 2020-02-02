@@ -59,7 +59,6 @@ MIDDLEWARE = [
 
 LOGOUT_REDIRECT_URL = '/login/'
 ROOT_URLCONF = 'gstwebv3.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -135,13 +134,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static_my_proj"),
 ]
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static_root")
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 
-
+# Media Folder Settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT= os.path.join(os.path.dirname(BASE_DIR), "static", "media_root")
 
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass

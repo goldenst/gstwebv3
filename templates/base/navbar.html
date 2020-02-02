@@ -8,6 +8,7 @@
 {% url 'calls:calls'  as calls_url %}
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
+{% url 'services' as services_url %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ home_url }}">GST</a>
@@ -20,7 +21,9 @@
 
         <!-- <a class="nav-item nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a> -->
 
-        <!-- <a class="nav-item nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url}}">Contact</a> -->
+        <a class="nav-item nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url}}">Contact</a>
+
+        <a class="nav-item nav-link {% if request.path == services_url %}active{% endif %}" href="{{ services_url}}">Services</a>
 
         <a class="nav-item nav-link {% if request.path == lien_url %}active{% endif %}" href="{{ lien_url }}">Lien Sales</a>
 
