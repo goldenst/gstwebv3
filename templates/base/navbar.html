@@ -21,9 +21,9 @@
 
         <!-- <a class="nav-item nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a> -->
 
-        <a class="nav-item nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url}}">Contact</a>
-
         <a class="nav-item nav-link {% if request.path == services_url %}active{% endif %}" href="{{ services_url}}">Services</a>
+
+        <a class="nav-item nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url}}">Contact</a>
 
         <a class="nav-item nav-link {% if request.path == lien_url %}active{% endif %}" href="{{ lien_url }}">Lien Sales</a>
 
@@ -36,14 +36,12 @@
 
         <a class="nav-item nav-link {% if request.path == logout_url %}active{% endif %}" href="{{ logout_url }}">Log Out</a>
 
-        
-
         <a class="nav-item nav-link active" href="#"> Welcome: {{request.user}}</a>
         {% else %}
         <a class="nav-item nav-link {% if request.path == login_url %}active{% endif %}" href="{{ login_url }}">Login</a>
         {% endif %}
-       
-        
+
+
       </div>
     </div>
   </nav>

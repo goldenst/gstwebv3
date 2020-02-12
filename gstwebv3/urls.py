@@ -12,16 +12,16 @@ urlpatterns = [
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
-    path('services/', services_page, name='services'),
     path('login/', login_page, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_page),
     path('lien/', include("liens.urls", namespace='liens')),
+    path('services/', services_page, name='services'),
     path('search/', include("search.urls", namespace='search')),
     path('garage/', include("garage.urls", namespace='garage')),
     path('damages/', include("damages.urls", namespace='damages')),
     path('admin/', admin.site.urls, name="admin"),
-    
+
 ]
 
 if settings.DEBUG:

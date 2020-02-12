@@ -7,7 +7,7 @@ from .forms import ContactForm, LoginForm, RegisterForm
 # ----------------------------- home page -------------------------------------
 def home_page(request):
   context = {
-    'title': 'Golden State Towing', 
+    'title': 'Golden State Towing',
   }
   if request.user.is_authenticated:
     context ['admin'] = 'You ae loged in as admin'
@@ -57,7 +57,7 @@ def login_page(request):
         # context['form'] = LoginForm()
         return redirect("/admin")
     else:
-         # Return an 'invalid login' error message. 
+         # Return an 'invalid login' error message.
         print("Error")
   return render(request, "auth/login.html", context)
 
@@ -79,13 +79,14 @@ def register_page(request):
     print(new_user)
   return render(request, "auth/register.html", context)
 
-# ---------------------- Services View -----------------------------------
+# ----------------------  lien View -----------------------------------
+# --------------------------services page -------------------------
 
 def services_page(request):
 
   context = {
     'title': 'Services',
-    
+
   }
- 
+
   return render(request, 'service/view.html', context )
