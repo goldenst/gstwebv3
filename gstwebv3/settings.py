@@ -9,12 +9,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'hx-lkty#^p^jq+6l8)o4%=4@3slm$^r@ii$m+fdr0%%!#r-z(*'
+SECRET_KEY = 'hx-lkty#^p^jq+6l8)o4%=4@3slm$^r@ii$m+fdr0%%!#r-z(*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'damages',
     'garage',
     'search',
+    'employees',
 
 ]
 
@@ -74,15 +75,15 @@ WSGI_APPLICATION = 'gstwebv3.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME':'gstwebv3',
-#         'USER': 'postgres',
-#         'PASSWORD': 'admin',
-#        'HOST': 'localhost'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'gstweb3',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+       'HOST': 'localhost'
+    }
+}
 
 
 # Password validation

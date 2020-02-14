@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
+from .models import Employee
 
-# from .models import Driver
 
-
-# admin.site.register(Driver)
+admin.site.register(Employee)

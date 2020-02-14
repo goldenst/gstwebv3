@@ -7,7 +7,8 @@ import os
 from django.urls import reverse
 # from goldenstateweb.utils import unique_slug_generator
 
-from drivers.models import Driver
+# from drivers.models import Driver
+from employees.models import Employee
 # Create your models here.
 
 # -------------------------  create new file for images --------------------
@@ -49,7 +50,7 @@ DAMAGE_STATUS_CHOICES = (
 )
 
 class Damage(models.Model):
-  driver              = models.ForeignKey(Driver, on_delete=models.DO_NOTHING)
+  employee             = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
   date_of_incident    = models.DateField(blank=True)
   club                = models.CharField(blank=True, max_length=120)
   call_num            = models.IntegerField(blank=True)

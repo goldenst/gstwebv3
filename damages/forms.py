@@ -7,7 +7,7 @@ class DamageForm(forms.ModelForm):
   class Meta:
     model = Damage
     fields = [
-      'driver',
+      'employee',
       'date_of_incident',
       'club',
       'call_num',

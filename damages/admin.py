@@ -6,10 +6,10 @@ from .models import Damage
 
 
 class DamageAdmin(admin.ModelAdmin):
-  list_display = ('id','cust_name','cost_to_gst','date_of_incident', 'status', 'driver' ) 
+  list_display = ('id','cust_name','cost_to_gst','date_of_incident', 'status', 'employee' ) 
   list_display_links = ('id', 'cust_name')
   list_editable = ('status',)
-  search_fields = ('driver', 'cust_name')
+  search_fields = ('employee', 'cust_name')
   list_per_page = 25
 
 
