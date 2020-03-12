@@ -10,18 +10,20 @@ from .views import home_page, about_page, contact_page, login_page, register_pag
 
 urlpatterns = [
     path('', home_page, name='home'),
+    path('admin/', admin.site.urls, name="admin"),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
+    path('damages/', include("damages.urls", namespace='damages')),
+    path('employees/', include("employees.urls", namespace='employees')),
+    path('garage/', include("garage.urls", namespace='garage')),
+    path('lien/', include("liens.urls", namespace='liens')),
     path('login/', login_page, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_page),
-    path('lien/', include("liens.urls", namespace='liens')),
+    path('sats/', include('sats.urls', namespace='sats')),
+    path('api/data/', include('sats.urls')),
     path('services/', services_page, name='services'),
     path('search/', include("search.urls", namespace='search')),
-    path('garage/', include("garage.urls", namespace='garage')),
-    path('damages/', include("damages.urls", namespace='damages')),
-    path('admin/', admin.site.urls, name="admin"),
-
 ]
 
 if settings.DEBUG:

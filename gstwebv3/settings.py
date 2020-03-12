@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'rest_framework',
 
 
     # my apps
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'garage',
     'search',
     'employees',
+    'sats',
 
 ]
 

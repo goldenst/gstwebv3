@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<div class="container">
+  <h1 class="text-center py-4">{{ title }}</h1>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Dl Expires</th>
+            <th scope="col">Cell Phone</th>
+            <th scope="col">AAA Driver #</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        {% for obj in object_list %}
+        <tbody>
+          <tr>
+            <td scope="row">{{ obj.id }}</td>
+            <td scope="row">{{ obj.firstName }}</td>
+            <td scope="row">{{ obj.lastName }}</td>
+            <td scope="row">{{ obj.dlExpire }}</td>
+            <td scope="row">{{ obj.cellphone }}</td>
+            <td scope="row">{{ obj.aaaDriverNumber }}</td>
+            <!-- <td scope="row"> <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">Details</a></td>  -->
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<div class="container text-center ">
+  <br>
+  <br>
+      <h2>ACCESS FORBIDEN  404</h2>
+      <hr>
+      <h4 >You are not Authroized to Access this page</h4>
+</div>
+
+
+{% endif %}
+
+{% endblock %}

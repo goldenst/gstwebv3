@@ -1,14 +1,17 @@
-{% url 'home' as home_url %}
-{% url 'about' as about_url %}
+
+{% url 'sats' as sats_url %}
 {% url 'admin' as admin_url %}
-{% url 'contact' as contact_url %}
-{% url 'liens:list'  as lien_url %}
-{% url 'garage:list'  as garage_url %}
-{% url 'damages:list'  as damage_url %}
 {% url 'calls:calls'  as calls_url %}
+{% url 'contact' as contact_url %}
+{% url 'damages:list'  as damage_url %}
+{% url 'employees:list' as employees_url %}
+{% url 'garage:list'  as garage_url %}
+{% url 'home' as home_url %}
+{% url 'liens:list'  as lien_url %}
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
 {% url 'services' as services_url %}
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ home_url }}">GST</a>
@@ -17,8 +20,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
-
+  
         <!-- <a class="nav-item nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a> -->
 
         <a class="nav-item nav-link {% if request.path == services_url %}active{% endif %}" href="{{ services_url}}">Services</a>
@@ -30,9 +32,27 @@
         <a class="nav-item nav-link {% if request.path == garage_url %}active{% endif %}" href="{{ garage_url }}">Garage Sales</a>
 
         {% if request.user.is_authenticated %}
-        <a class="nav-item nav-link {% if request.path == damage_url %}active{% endif %}" href="{{ damage_url }}">Damages</a>
+        <!-- dropdown   -->
+        <a class="nav-item nav-link {% if request.path == sats_url %}active{% endif %}" href="{{ sats_url }}">Scores</a>
 
-        <a class="nav-item nav-link" href="/admin/">Admin Area</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Admin Area
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ damage_url }}">Damages</a>
+            <a class="dropdown-item" href="{{ employees_url }}">Employees</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Corrective Action</a>
+          </div>
+        </li>
+        <!--  -->
+        <!-- <a class="nav-item nav-link {% if request.path == damage_url %}active{% endif %}" href="{{ damage_url }}">Damages</a>
+
+        <a class="nav-item nav-link {% if request.path == employees_url %}active{% endif %}" href="{{ employees_url }}">Employees</a> -->
+
+        <!-- end dropdown -->
+        <a class="nav-item nav-link" href="/admin/">Admin Console</a>
 
         <a class="nav-item nav-link {% if request.path == logout_url %}active{% endif %}" href="{{ logout_url }}">Log Out</a>
 

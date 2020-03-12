@@ -50,7 +50,7 @@ DAMAGE_STATUS_CHOICES = (
 )
 
 class Damage(models.Model):
-  employee             = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
+  employee            = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
   date_of_incident    = models.DateField(blank=True)
   club                = models.CharField(blank=True, max_length=120)
   call_num            = models.IntegerField(blank=True)
