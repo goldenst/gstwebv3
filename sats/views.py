@@ -1,55 +1,64 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
 
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import View
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-
-
-
 # Create your views here.
-from .models import SatsScores
+from .models import SatsScores, DriverSats
 from .forms import SatForm
 
 
-def satScores(request):
-  queryset = SatsScores.objects.all()
-  context = { 
-    'title': 'Sat Scores',
-    'object_list': queryset
-  }
-  return render(request, 'sats/view.html', context)
+class HomeView(View):
+  def get(self, request, *args, **kwargs):
+    qs = DriverSats.objects.all()
+    sats = SatsScores.objects.all()
+    context = {
+      'driver_sats': qs,
+      'sats': sats
+    }
+    return render(request, 'sats/view.html', context)
 
 # get data ----------------------------------
-def get_data(request, *args, **kwaargs):
-  data = {
-    'overall': 88,
-    'driver': 90.9,
-    'response': 56.6,
-    'kmi': 78.8
+def get_data(request, *args, **kwargs):
+  qs = DriverSats.objects.all()
+  context = {
+    'driver_sats': qs
   }
-  return JsonResponse(data)
+  return render(request, 'sats/view.html', context )
 
 
 
 def updateScores(request):
   return render(request, 'sats/update.html', {})
 
+# rest view ==
 class ChartData(APIView):
   
-  authentication_classes = []
-  permission_classes = []
+    authentication_classes = []
+    permission_classes = []
 
-  def get(self, request, format=None):
-    overall = qs.satScores.overall()
-      data = {
-        'overall': overall,
-        'driver': 90.9,
-        'response': 56.6,
-        'kmi': 78.8
+    def get(self, request, format=None):
+      # name = DriverSats.objects.all()
+      labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+      default_items = [123,65,456,433,343,344]
+      data= {
+          'labels': labels,
+          'defaultData': default_items
+        
       }
       return Response(data)
 
+#  results data
+def resultsData(request):
+  paid = DriverSats.objects.get(id=1)
 
+  # for i in paid:
+  #   paid.append({i.paidCalls})
+    
+  return JsonResponse(paid, safe=False)
 
+def DriverViewSet(request, *args, **kwargs):
+  return render(request, 'sats/view.html', {} )

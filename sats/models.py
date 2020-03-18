@@ -11,3 +11,14 @@ class SatsScores(models.Model):
 
   def __str__(self):
     return self.month
+
+class DriverSats(models.Model):
+  name          = models.CharField(max_length=20)
+  paidCalls     = models.DecimalField(decimal_places=1, max_digits=4)
+  rt60          = models.DecimalField(decimal_places=1, max_digits=4)
+  tos           = models.DecimalField(decimal_places=1, max_digits=4)
+  missingOl     = models.DecimalField(decimal_places=1, max_digits=4)
+  isActive      = models.BooleanField(default=True)
+
+  def __str__(self):
+    return self.name

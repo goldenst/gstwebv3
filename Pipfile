@@ -12,6 +12,9 @@ pillow = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
 pytz = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filte = "*"
 
 [requires]
 python_version = "3.7"
