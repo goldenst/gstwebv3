@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from sats.models import DriverSats, SatsScores
+from satscores.models import DriverSats, SatsScores
 
 class DriverSatSerializer(serializers.ModelSerializer):
   class Meta:

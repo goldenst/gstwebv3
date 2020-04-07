@@ -20,8 +20,8 @@ urlpatterns = [
     path('login/', login_page, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_page),
-    path('sats/', include('sats.urls', namespace='sats')),
-    path('api/data/', include('sats.urls')),
+    path('sats/', include('satscores.urls', namespace='satscores')),
+    path('api/data/', include('satscores.urls')),
     path('services/', services_page, name='services'),
     path('search/', include("search.urls", namespace='search')),
 ]

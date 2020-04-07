@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'garage',
     'search',
     'employees',
-    'sats',
+    'satscores',
 
 ]
 

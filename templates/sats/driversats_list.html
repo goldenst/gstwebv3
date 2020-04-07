@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container  my-4">
+  <h5>Driver Stats</h5>
+  <div class="col-10">
+    <div class="row">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Driver</th>
+            <th scope="col">Paid Calls</th>
+            <th scope="col">Over 60</th>
+            <th scope="col">Avg Tos</th>
+            <th scope="col">Missing OL</th>
+          </tr>
+        </thead>
+        {% for obj in drivers %}
+       
+        <tbody class="tabel-striped">
+          <tr>
+            <th>{{obj.name}}</th>
+            <td>{{obj.paidCalls}}</td>
+            <td>{{obj.rt60}}</td>
+            <td>{{obj.tos}}</td>
+            <td>{{obj.missingOl}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

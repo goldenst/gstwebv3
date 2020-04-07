@@ -1,82 +1,96 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% load static %}
 {% block content %}
-
-
-<div class="container">
-  <div class="col-10">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Driver</th>
-          <th scope="col">Paid Calls</th>
-          <th scope="col">Over 60</th>
-          <th scope="col">Avg Tos</th>
-          <th scope="col">Missing OL</th>
-        </tr>
-      </thead>
-      {% for obj in driver_sats %}
-      <tbody>
-        <tr>
-          <th>{{obj.name}}</th>
-          <td>{{obj.paidCalls}}</td>
-          <td>{{obj.rt60}}</td>
-          <td>{{obj.tos}}</td>
-          <td>{{obj.missingOl}}</td>
-        </tr>
-      </tbody>
-      {% endfor %}
-    </table>
-    {% for obj in sats %}
-  Month: {{ obj.month}} <br>
-  Overall Sat: {{ obj.overall}} <br>
-  Driver sat: {{ obj.driver}} <br>
-  KMI Sat: {{ obj.kmi}} <br>
-  {% endfor %}
+{% for sat in sats %}
+<div class="container my-3">
+  <h2>Shop Stats</h2>
+  <div class="row text-center">
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Month</h5>
+          <p class="card-text">{{sat.month}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ovrall Stat</h5>
+          <p class="card-text">{{sat.overall}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Driver Stat</h5>
+          <p class="card-text">{{sat.driver}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Response</h5>
+          <p class="card-text">{{sat.response}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">KMI</h5>
+          <p class="card-text">{{sat.kmi}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Lost Calls</h5>
+          <p class="card-text">{{sat.lostCalls}}</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-  {% endblock %}
-
-
-  {% for obj in qs %}
-  Month: {{ obj.month}} <br>
-  Overall Sat: {{ obj.overall}} <br>
-  Driver sat: {{ obj.driver}} <br>
-  KMI Sat: {{ obj.kmi}} <br>
   {% endfor %}
-  {% for obj in ds %}
-  Name: {{ obj.name}} <br>
-  Calls Run: {{ obj.paidCalls}} <br>
-  Resp time: {{ obj.rt60}} <br>
-  tos: {{ obj.tos}} <br>
+<hr>
+<h2>Driver Stats</h2>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Driver</th>
+      <th scope="col">Paid Calls</th>
+      <th scope="col">Over 60</th>
+      <th scope="col">Avg Tos</th>
+      <th scope="col">Avg Tow</th>
+      <th scope="col">Driver Sat</th>
+      <th scope="col">Overall Sat</th>
+    </tr>
+  </thead>
+ 
+  
+  {% for obj in driver %}
+  {% if obj.is_active  %}
+ 
+  <tbody class="tabel-striped text-center">
+    <tr>
+      <th>{{obj.name}}</th>
+      <td>{{obj.paidCalls}}</td>
+      <td>{{obj.rt60}} %</td>
+      <td>{{obj.tos}} Min</td>
+      <td>{{obj.minIntow}} Min</td>
+      <td>{{obj.driversat}} %</td>
+      <td>{{obj.overallsat}} %</td>
+    </tr>
+  </tbody>
+ 
+  {% endif %}
   {% endfor %}
+  
+</table>
+</div>
 
-  var endpoint = 'api/chart/data'
-  var defaultData = []
-  var lables = []
+{% endblock %}
 
-  $.ajax({
-  method: 'GET',
-  url: endpoint,
-  success: function (data) {
-  lables = data.labels
-  defaultData = data.default
-  console.log(data)
-
-  var ctx = document.getElementById('myChart');
-  var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-  labels: lables ,
-  datasets: [{
-  label: '# Paid Calls',
-  data: defaultData,
-  }],
-  }
-  })
-  },
-  error: function (error_data) {
-  console.log('error',error_data)
-  },
-  })
