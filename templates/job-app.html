@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+  <br>
+  <h2>Employment Application</h2>
+  <hr>
+  <form>
+    <h4>Contact Information</h4>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="ssn">Middle Name</label>
+        <input type="text" class="form-control" id="ssn">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <!-- Employment desired -->
+    <h5>Employment Desired</h5>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Position Applyng for</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Tow Driver</option>
+          <option value="2">Battery / Service Driver</option>
+          <option value="3">Dispatcher</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Hours</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Full time</option>
+          <option value="2">Part Time</option>
+          <option value="3">Temp Work</option>
+        </select>
+      </div>
+    </div>
+
+    <h5>Avalibility</h5>
+    <hr>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Mon</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Tues</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+          <label class="form-check-label" for="inlineRadio3">Wed</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+          <label class="form-check-label" for="inlineRadio4">Thurs</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+          <label class="form-check-label" for="inlineRadio5">Fri</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+          <label class="form-check-label" for="inlineRadio6">Sat</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio7" value="option7">
+          <label class="form-check-label" for="inlineRadio7">Sun</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputZip">If hired when can you start</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <!-- personal info -->
+    <h5>Personal Information</h5>
+    <hr>
+    <div class="form-group col-md-6">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">I have Reasonable Means of Transportation</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">I am Over 18 Years of Age</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">if applying fro driving position I am Over the Age of
+          25</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+        <label class="form-check-label" for="inlineRadio4">I am leagley able to work in this Country</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+        <label class="form-check-label" for="inlineRadio5">I am able to perform Essential functions of the job applying
+          for</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Are You Currently Employed</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">May we Contact Your Employer</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+    </div>
+    <!-- Education -->
+    <h5>Education, Training and Experience</h5>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">High School</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">City</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Did You Graduate</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="firstName">Years Attended</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Degree ?</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Collage</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">City</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Did You Graduate</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="firstName">Years Attended</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Degree?</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Vocational / Trade School</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">City</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Did You Graduate</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="firstName">Years Attended</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Diploma ?</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+    </div>
+    <!-- Employment history -->
+    <h5>Employment History</h5>
+    <hr>
+    <p class="text-center">Start with the most recent</p>
+    <p class="text-center"> Please provide Employment History for the past 3 years</p>
+    <p class="text-center">First History</p>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Previous Employer</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Type of Buisness</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Address</label>
+      <input type="text" class="form-control" id="firstName">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Phone</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Supervisor</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Rate of Pay</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="duties=1">Duties</label>
+        <input type="text" class="form-control" id="duties=1">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="reason-1">Reason for leaving</label>
+        <input type="text" class="form-control" id="reason-1">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="employmentStart-1">Employment Start</label>
+        <input type="date" class="form-control" id="employmentStart-1">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="employmentEnd-1">Employment End</label>
+        <input type="date" class="form-control" id="employmentEnd-1">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">May we Contact</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+    </div>
+    <p class="text-center">Second History</p>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Previous Employer</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Type of Buisness</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Address</label>
+      <input type="text" class="form-control" id="firstName">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Phone</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Supervisor</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Rate of Pay</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Duties</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Reason for leaving</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Employment Start</label>
+        <input type="date" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Employment End</label>
+        <input type="date" class="form-control" id="lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">May we Contact</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+    </div>
+    <p class="text-center">Third History</p>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Previous Employer</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Type of Buisness</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Address</label>
+      <input type="text" class="form-control" id="firstName">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Phone</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Supervisor</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Rate of Pay</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">Duties</label>
+        <input type="text" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Reason for leaving</label>
+        <input type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="firstName">Employment Start</label>
+        <input type="date" class="form-control" id="firstName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">Employment End</label>
+        <input type="date" class="form-control" id="lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="lastName">May we Contact</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">No</option>
+          <option value="2">Yes</option>
+        </select>
+      </div>
+    </div>
+<hr>
+<input class='btn btn-primary btn-block' type="button" value="Submit">
+  </form>
+</div>
+
+<hr><br>
+<hr>
+{% endblock %}

@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from .forms import ContactForm, LoginForm, RegisterForm
+from .forms import ContactForm, LoginForm, RegisterForm, job_applicationForm
 
 # ----------------------------- home page -------------------------------------
 def home_page(request):
@@ -71,22 +71,30 @@ def register_page(request):
     'form': form ,
   }
   if form.is_valid():
-    print(form.cleaned_data)
+    # print(form.cleaned_data)
     username = form.cleaned_data.get("username")
     email = form.cleaned_data.get("email")
     password = form.cleaned_data.get("password")
     new_user = User.objects.create_user(username, email, password)
-    print(new_user)
+    # print(new_user)
   return render(request, "auth/register.html", context)
 
 # ----------------------  lien View -----------------------------------
 # --------------------------services page -------------------------
 
 def services_page(request):
-
   context = {
     'title': 'Services',
-
   }
-
   return render(request, 'service/view.html', context )
+
+
+# -------------------  Job app ------------------------------------
+
+def job_application(request):
+  form = job_applicationForm(request.POST or None)
+  context = {
+    'title': "Now accepting Applicastions",
+    'jobapp': form
+  }
+  return render(request, 'job-app.html', context)

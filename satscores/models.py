@@ -9,6 +9,8 @@ class SatsScores(models.Model):
   response    = models.DecimalField(decimal_places=1, max_digits=3)
   kmi         = models.DecimalField(decimal_places=1, max_digits=3)
   lostCalls   = models.IntegerField(default=0)
+  aaacalls    = models.IntegerField(default=0)
+  under60Min  = models.DecimalField(decimal_places=1, max_digits=3, default=0)
 
   def __str__(self):
     return self.month

@@ -5,11 +5,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 
-from .views import home_page, about_page, contact_page, login_page, register_page, services_page
+from .views import home_page, about_page, contact_page, login_page, register_page, services_page,   job_application
 
 
 urlpatterns = [
     path('', home_page, name='home'),
+    path('job-app', job_application, name='apply'),
     path('admin/', admin.site.urls, name="admin"),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),

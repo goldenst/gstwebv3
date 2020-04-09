@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-# import form to view.py
+
 # ---------------------------- Contact form -----------------------------------
 class ContactForm(forms.Form):
   fullname    = forms.CharField(
@@ -83,29 +83,9 @@ class RegisterForm(forms.Form):
 
 
 
+# ------------------ job app -------------------------
 
-# class CallForm(forms.Form):
-#   fullname    = forms.CharField(
-#               widget=forms.TextInput(
-#                   attrs={
-#                     "class": "form-control", 
-#                     "placeholder": "Name"
-#                     }
-#                     )
-#               )
-#   email       = forms.EmailField(
-#               widget=forms.EmailInput(
-#                   attrs={
-#                     "class": "form-control", 
-#                     "placeholder": "Email"
-#                     }
-#                     )
-#               )
-#   message     = forms.CharField(
-#               widget=forms.Textarea(
-#                   attrs={
-#                     "class": "form-control", 
-#                     "placeholder": "My Message"
-#                     }
-#                     )
-#               )
+class job_applicationForm(forms.Form):
+  firstName   = forms.CharField()
+  lastName    = forms.CharField()
+  email       = forms.EmailField()

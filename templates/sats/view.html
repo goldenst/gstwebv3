@@ -4,8 +4,9 @@
 {% for sat in sats %}
 <div class="container my-3">
   <h2>Shop Stats</h2>
+
   <div class="row text-center">
-    <div class="col-sm-2">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Month</h5>
@@ -13,7 +14,10 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+  </div>
+  <br>
+  <div class="row text-center">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Ovrall Stat</h5>
@@ -21,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Driver Stat</h5>
@@ -29,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Response</h5>
@@ -37,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">KMI</h5>
@@ -45,7 +49,27 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    
+  </div>
+  <br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">AAA Calls Ran</h5>
+          <p class="card-text">{{sat.aaacalls}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Under 60 Min</h5>
+          <p class="card-text">{{sat.under60Min}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Lost Calls</h5>
