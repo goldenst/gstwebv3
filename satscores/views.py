@@ -17,7 +17,7 @@ from .forms import SatForm
 
 class HomeView(View):
   def get(self, request, *args, **kwargs):
-    qs = DriverSats.objects.all()
+    qs = DriverSats.objects.order_by('-paidCalls')
     sat = SatsScores.objects.all()
     context = {
       'driver': qs,

@@ -89,12 +89,3 @@ def services_page(request):
   return render(request, 'service/view.html', context )
 
 
-# -------------------  Job app ------------------------------------
-
-def job_application(request):
-  form = job_applicationForm(request.POST or None)
-  context = {
-    'title': "Now accepting Applicastions",
-    'jobapp': form
-  }
-  return render(request, 'job-app.html', context)

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'search',
     'employees',
     'satscores',
+    'application',
 
 ]
 

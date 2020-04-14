@@ -7,7 +7,8 @@
   <br>
   <h2>Employment Application</h2>
   <hr>
-  <form>
+  <form action="" method="POST">
+    {% csrf_token %}
     <h4>Contact Information</h4>
     <hr>
     <div class="form-row">
@@ -441,7 +442,9 @@
       </div>
     </div>
 <hr>
-<input class='btn btn-primary btn-block' type="button" value="Submit">
+
+<button type='submit' class="btn btn-primary btn-block">Submit</button>
+<button type='reset' class="btn btn-danger btn-block" >Clear All</button>
   </form>
 </div>
 

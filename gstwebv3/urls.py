@@ -5,12 +5,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 
-from .views import home_page, about_page, contact_page, login_page, register_page, services_page,   job_application
+from .views import home_page, about_page, contact_page, login_page, register_page, services_page
 
 
 urlpatterns = [
     path('', home_page, name='home'),
-    path('job-app', job_application, name='apply'),
+    path('job-app/', include('application.urls', namespace='application')),
     path('admin/', admin.site.urls, name="admin"),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
@@ -21,7 +21,7 @@ urlpatterns = [
     path('login/', login_page, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_page),
-    path('sats/', include('satscores.urls', namespace='satscores')),
+    path('sats/', include('satscores.urls')),
     path('api/data/', include('satscores.urls')),
     path('services/', services_page, name='services'),
     path('search/', include("search.urls", namespace='search')),
