@@ -39,7 +39,7 @@ def job_application_edit(request, pk=None):
 
 
 def application_list(request):
-  instance = JobApplication.objects.all()
+  instance = JobApplication.objects.order_by('-id')
   context = {
     'jobs': instance,
   }
