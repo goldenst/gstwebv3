@@ -10,7 +10,7 @@ from .views import home_page, about_page, contact_page, login_page, register_pag
 
 urlpatterns = [
     path('', home_page, name='home'),
-    path('job-app/', include('application.urls', namespace='application')),
+    path('application/', include('application.urls', namespace='application')),
     path('admin/', admin.site.urls, name="admin"),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),

@@ -1,5 +1,6 @@
 {% url 'satscores:home' as satscores_url %}
 {% url 'admin' as admin_url %}
+{% url 'application:list' as application_url %}
 {% url 'calls:calls'  as calls_url %}
 {% url 'contact' as contact_url %}
 {% url 'damages:list'  as damage_url %}
@@ -51,6 +52,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ damage_url }}">Damages</a>
           <a class="dropdown-item" href="{{ employees_url }}">Employees</a>
+          <a class="dropdown-item" href="{{ application_url }}">Applications</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Corrective Action</a>
         </div>

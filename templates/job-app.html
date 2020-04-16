@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load widget_tweaks %}
 {% block content %}
 <div class="container">
+
 
   <br>
   <h2>Employment Application</h2>
@@ -14,47 +15,47 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.firstName class="form-control" placeholder=' John' %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.lastname class="form-control" placeholder='Smith' %}
       </div>
     </div>
     <div class="form-row">
-
-      <div class="form-group col-md-6">
-        <label for="ssn">Middle Name</label>
-        <input type="text" class="form-control" id="ssn">
+      <div class="form-group col-md-2">
+        <label for="ssn">Middle Inital</label>
+        {%  render_field form.middleName class+="form-control" placeholder='R' %}
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-5">
+        <label for="inputEmail">Phone</label>
+        {%  render_field form.phoneNumber class="form-control" placeholder='555-555-5555' %}
+      </div>
+      <div class="form-group col-md-5">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail">
+        {%  render_field form.email class="form-control" placeholder='john@abc.com' %}
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      {%  render_field form.address class="form-control" placeholder='1234 Main St' %}
     </div>
     <div class="form-group">
       <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      {%  render_field form.address class="form-control" placeholder='Apartment, studio, or floor' %}
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
+        {%  render_field form.city class="form-control" placeholder='Sacramento' %}
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
+        {%  render_field form.state class="form-control" placeholder='CA' %}
       </div>
       <div class="form-group col-md-2">
         <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
+        {%  render_field form.zip class="form-control" placeholder='95621' %}
       </div>
     </div>
     <!-- Employment desired -->
@@ -63,21 +64,11 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Position Applyng for</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Tow Driver</option>
-          <option value="2">Battery / Service Driver</option>
-          <option value="3">Dispatcher</option>
-        </select>
+        {%  render_field form.position class="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Hours</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Full time</option>
-          <option value="2">Part Time</option>
-          <option value="3">Temp Work</option>
-        </select>
+        {%  render_field form.hours class+="form-control"  %}
       </div>
     </div>
 
@@ -85,38 +76,12 @@
     <hr>
     <div class="row">
       <div class="form-group col-md-6">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          <label class="form-check-label" for="inlineRadio1">Mon</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Tues</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-          <label class="form-check-label" for="inlineRadio3">Wed</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-          <label class="form-check-label" for="inlineRadio4">Thurs</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-          <label class="form-check-label" for="inlineRadio5">Fri</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-          <label class="form-check-label" for="inlineRadio6">Sat</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio7" value="option7">
-          <label class="form-check-label" for="inlineRadio7">Sun</label>
-        </div>
+        <label for="lastName">Avalibility</label>
+        {%  render_field form.avalibility class+="form-control" placeholder='Any Shift or Days' %}
       </div>
       <div class="form-group col-md-6">
         <label for="inputZip">If hired when can you start</label>
-        <input type="text" class="form-control" id="inputZip">
+        {%  render_field form.start class+="form-control" placeholder='ASAP / Two Weeks ect...' %}
       </div>
     </div>
     <!-- personal info -->
@@ -124,24 +89,24 @@
     <hr>
     <div class="form-group col-md-6">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        {%  render_field form.reliableTransportation class+="form-check-input"  %}
         <label class="form-check-label" for="inlineRadio1">I have Reasonable Means of Transportation</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        {%  render_field form.over18 class+="form-check-input"  %}
         <label class="form-check-label" for="inlineRadio2">I am Over 18 Years of Age</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        {%  render_field form.drivingPosition class+="form-check-input"  %}
         <label class="form-check-label" for="inlineRadio3">if applying fro driving position I am Over the Age of
           25</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+        {%  render_field form.leaglyAbleToWork class+="form-check-input"  %}
         <label class="form-check-label" for="inlineRadio4">I am leagley able to work in this Country</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+        {%  render_field form.essentialfuncrtons class+="form-check-input"  %}
         <label class="form-check-label" for="inlineRadio5">I am able to perform Essential functions of the job applying
           for</label>
       </div>
@@ -149,19 +114,11 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Are You Currently Employed</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.currentltEmployed class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">May we Contact Your Employer</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Yes</option>
-          <option value="2">No</option>
-        </select>
+        {%  render_field form.contactEmployer class+="form-control"  %}
       </div>
     </div>
     <!-- Education -->
@@ -170,281 +127,248 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">High School</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.highSchool class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">City</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.highSchoolCity class+="form-control"  %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Did You Graduate</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.graduated class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="firstName">Years Attended</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.highYearsattend class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Degree ?</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Yes</option>
-          <option value="2">No</option>
-        </select>
+        {%  render_field form.highSchoolDegree class+="form-control"  %}
       </div>
     </div>
     <hr>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Collage</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.collage class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">City</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.collageCity class+="form-control"  %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Did You Graduate</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.collageGraduate class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="firstName">Years Attended</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.collageYearsAttend  class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Degree?</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Yes</option>
-          <option value="2">No</option>
-        </select>
+        {%  render_field form.collagedegree  class+="form-control"  %}
       </div>
     </div>
     <hr>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Vocational / Trade School</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.tradeSchool  class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">City</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.tradeSchoolCity  class+="form-control"  %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Did You Graduate</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.tradeSchoolGraduate  class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="firstName">Years Attended</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.tradeSchoolYearsAttend  class+="form-control"  %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Diploma ?</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">Yes</option>
-          <option value="2">No</option>
-        </select>
+        {%  render_field form.tradeSchoolDegree  class+="form-control"  %}
       </div>
     </div>
     <!-- Employment history -->
     <h5>Employment History</h5>
     <hr>
     <p class="text-center">Start with the most recent</p>
-    <p class="text-center"> Please provide Employment History for the past 3 years</p>
+    <p class="text-center"> Please Provide Employment History for the Past 3 Years</p>
     <p class="text-center">First History</p>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Previous Employer</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployer1  class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Type of Buisness</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.typeofbuisness1  class+="form-control"  %}
       </div>
     </div>
     <div class="form-group">
       <label for="firstName">Address</label>
-      <input type="text" class="form-control" id="firstName">
+      {%  render_field form.prevEmplouerAddress1  class+="form-control"  %}
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Phone</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerPhone1  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Supervisor</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerSupervisor1  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Rate of Pay</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerRateofpay1  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="duties=1">Duties</label>
-        <input type="text" class="form-control" id="duties=1">
+        {%  render_field form.previousEmployerDuties1  class+="form-control" %}
       </div>
       <div class="form-group col-md-6">
         <label for="reason-1">Reason for leaving</label>
-        <input type="text" class="form-control" id="reason-1">
+        {%  render_field form.previousEmployerReason1  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="employmentStart-1">Employment Start</label>
-        <input type="date" class="form-control" id="employmentStart-1">
+        {%  render_field form.previousEmployerStart1 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="employmentEnd-1">Employment End</label>
-        <input type="date" class="form-control" id="employmentEnd-1">
+        {%  render_field form.previousEmployerEnd1 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">May we Contact</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.previousEmployerContact1 class+="form-control" %}
       </div>
     </div>
     <p class="text-center">Second History</p>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Previous Employer</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployer2  class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Type of Buisness</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.typeofbuisness2  class+="form-control"  %}
       </div>
     </div>
     <div class="form-group">
       <label for="firstName">Address</label>
-      <input type="text" class="form-control" id="firstName">
+      {%  render_field form.prevEmplouerAddress2  class+="form-control"  %}
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Phone</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerPhone2  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Supervisor</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerSupervisor2  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Rate of Pay</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerRateofpay2  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Duties</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerDuties2  class+="form-control" %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Reason for leaving</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerReason2  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Employment Start</label>
-        <input type="date" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerStart2 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Employment End</label>
-        <input type="date" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerEnd2 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">May we Contact</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.previousEmployerContact2 class+="form-control" %}
       </div>
     </div>
     <p class="text-center">Third History</p>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Previous Employer</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployer3  class+="form-control"  %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Type of Buisness</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.typeofbuisness3  class+="form-control"  %}
       </div>
     </div>
     <div class="form-group">
       <label for="firstName">Address</label>
-      <input type="text" class="form-control" id="firstName">
+      {%  render_field form.prevEmplouerAddress3  class+="form-control"  %}
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Phone</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerPhone3  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Supervisor</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerSupervisor3  class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Rate of Pay</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerRateofpay3  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">Duties</label>
-        <input type="text" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerDuties3  class+="form-control" %}
       </div>
       <div class="form-group col-md-6">
         <label for="lastName">Reason for leaving</label>
-        <input type="text" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerReason3  class+="form-control" %}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="firstName">Employment Start</label>
-        <input type="date" class="form-control" id="firstName">
+        {%  render_field form.previousEmployerStart3 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">Employment End</label>
-        <input type="date" class="form-control" id="lastName">
+        {%  render_field form.previousEmployerEnd3 type='date' class+="form-control" %}
       </div>
       <div class="form-group col-md-4">
         <label for="lastName">May we Contact</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Choose...</option>
-          <option value="1">No</option>
-          <option value="2">Yes</option>
-        </select>
+        {%  render_field form.previousEmployerContact3 class+="form-control" %}
       </div>
     </div>
-<hr>
+    <hr>
 
-<button type='submit' class="btn btn-primary btn-block">Submit</button>
-<button type='reset' class="btn btn-danger btn-block" >Clear All</button>
+    <button type='submit' class="btn btn-primary btn-block">Submit</button>
+    <button type='reset' class="btn btn-danger btn-block">Clear All</button>
+    {% if request.user.is_authenticated %}
+    <button type='reset' class="btn btn-warning btn-block">Download</button>
+    {% endif %}
   </form>
 </div>
 

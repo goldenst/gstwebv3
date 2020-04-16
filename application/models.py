@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 YES_NO_CHOICES = (
   ('Yes', 'Yes'),
@@ -17,11 +18,22 @@ HOURS_CHOICES = (
   ('temp', 'Temp Work')
 )
 
+class ApplicationManager(models.Manager):
+  def featured(self):
+    return self.get_queryset().filter(featured=True)
+
+  def get_by_id(self,id):
+    qs = self.get_queryset().filter(id=id)
+    if qs.count() == 1:
+      return qs.first()
+    return None
+
 class JobApplication(models.Model):
   firstName                         = models.CharField(max_length=100)
   lastname                          = models.CharField(max_length=100)
   middleName                        = models.CharField(max_length=100)
-  email                             = models.EmailField(max_length=100)
+  phoneNumber                       = models.CharField(max_length=100, default='0')
+  email                             = models.EmailField(max_length=100, unique=True)
   address                           = models.CharField(max_length=100)
   address2                          = models.CharField(max_length=100, blank=True, null=True)
   city                              = models.CharField(max_length=100)
@@ -30,7 +42,7 @@ class JobApplication(models.Model):
   position                          = models.CharField(max_length=100, choices=POSITION_CHOICES, default='driver')
   hours                             = models.CharField(max_length=100, choices=HOURS_CHOICES, default='full')
   avalibility                       = models.CharField(max_length=100)
-  start                             = models.BooleanField(default=False)
+  start                             = models.CharField(max_length=100)
   reliableTransportation            = models.BooleanField(default=False)
   over18                            = models.BooleanField(default=False)
   drivingPosition                   = models.BooleanField(default=False)
@@ -87,6 +99,13 @@ class JobApplication(models.Model):
   previousEmployerStart3            = models.DateField(auto_now=False, blank=True, null=True)
   previousEmployerEnd3              = models.DateField(auto_now=False, blank=True, null=True)
   previousEmployerContact3          = models.CharField(max_length=10, choices=YES_NO_CHOICES, default='No', blank=True, null=True)
+  createted_at                      = models.DateTimeField(auto_now_add=True)
 
+  objects = ApplicationManager()
+
+  def get_absolute_url(self):
+    # return "/lien/{pk}/".format(pk=self.pk)
+    return reverse("application:update", kwargs={'pk': self.pk})
+  
   def __str__(self):
     return self.email
