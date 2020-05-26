@@ -20,29 +20,45 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'application.apps.ApplicationConfig',
+    # 'damages.apps.DamagesConfig',
+    # 'drivers.apps.DriversConfig',
+    # 'employees.apps.EmployeesConfig',
+    # 'garage.apps.GarageConfig',
+    # 'liens.apps.LiensConfig',
+    # 'satscores.apps.SatsConfig',
+    # 'sellers.apps.SellersConfig',
+    # 'trucks.apps.TrucksConfig',
+
+    'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+   
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'rest_framework',
+   
     'widget_tweaks',
 
-
+   
+    
     # my apps
     'sellers',
+    'search',
     'liens',
     'drivers',
     'damages',
     'garage',
-    'search',
+    'trucks',
+    # 'search',
     'employees',
     'satscores',
     'application',
-
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +71,7 @@ MIDDLEWARE = [
 ]
 
 LOGOUT_REDIRECT_URL = '/login/'
+
 ROOT_URLCONF = 'gstwebv3.urls'
 
 TEMPLATES = [

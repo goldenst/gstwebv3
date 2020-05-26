@@ -4,7 +4,7 @@ from .views import (
    SearchLienView,
     )
 
-app_name = 'liens'
+app_name = 'search'
 
 urlpatterns = [
     path('', SearchLienView.as_view() , name='query'),

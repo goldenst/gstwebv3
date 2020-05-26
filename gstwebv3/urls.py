@@ -7,6 +7,7 @@ from django.contrib.auth.views import LogoutView
 
 from .views import home_page, about_page, contact_page, login_page, register_page, services_page
 
+# app_name = 'gstwebv3'
 
 urlpatterns = [
     path('', home_page, name='home'),

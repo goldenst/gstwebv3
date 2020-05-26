@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 
 from .forms import ContactForm, LoginForm, RegisterForm, job_applicationForm
 
+
+User = get_user_model()
 # ----------------------------- home page -------------------------------------
 def home_page(request):
   context = {
@@ -61,9 +63,11 @@ def login_page(request):
         print("Error")
   return render(request, "auth/login.html", context)
 
-
+# -------------------- logout --------------------------
+# def LogoutView(request)
+#   pass
 # ----------------------------- register page -------------------------------------
-User = get_user_model()
+
 def register_page(request):
   form = RegisterForm(request.POST or None)
   context = {
